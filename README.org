@@ -9,7 +9,7 @@ This repository contains code and data for the preprint [[https://arxiv.org/abs/
    - data generation pipeline for supervised learning (~lbd_gen_data.py~)
    - solver evaluation harness (~solver_eval.py~)
    - hyperparameter configurations (~./python/cfgs/*.json~)
-   - reinforcement learning training loop (~./python/rl_lbd.py~)
+   - reinforcement learning training loop (~./python/rl_loop.py~)
 
  - ~./solver/~ contains:
     - ~./solver/cadical~: CaDiCaL with support for periodic refocusing

@@ -73,7 +73,7 @@ class Batcher:
     return torch.split(z, self.y_dims)
 
   def _unbatch_variables(self, z):
-    return torch.split(z, [int(x/2) for x in self.y_dims])
+    return torch.split(z, [int(x//2) for x in self.y_dims])
 
   def __call__(self, Gs, x_dims=None, y_dims=None):
     return self.batch(Gs, x_dims, y_dims)
