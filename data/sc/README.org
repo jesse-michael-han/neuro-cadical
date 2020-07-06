@@ -1,0 +1,4 @@
+#+TITLE: SAT competition benchmark downloads
+
+ - SATCOMP 2018 main track: [[http://sat2018.forsyte.tuwien.ac.at/benchmarks/Main.zip][link]]
+ - SATRACE 2019 main track: [[http://satcompetition.org/sr2019benchmarks.zip][link]]

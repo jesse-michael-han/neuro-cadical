@@ -1,0 +1,12 @@
+torch
+numpy
+cnfgen
+https://ray-wheels.s3-us-west-2.amazonaws.com/master/a8bda9b55173e18335ed023531411473071e4d38/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
+h5py
+tensorflow>=2.1
+tensorboard
+python-sat
+matplotlib
+psutil
+pandas
+tabulate

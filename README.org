@@ -1,0 +1,46 @@
+#+TITLE: neuro-CaDiCaL
+
+* About
+This repository contains code and data for /Enhancing SAT solvers with glue variable predictions/, submitted to NeurIPS 2020.
+
+* Repository contents
+ - ~./python/~ contains:
+   - model and model deployment code (~gnn.py~)
+   - data generation pipeline for supervised learning (~lbd_gen_data.py~)
+   - solver evaluation harness (~solver_eval.py~)
+   - hyperparameter configurations (~./python/cfgs/*.json~)
+   - reinforcement learning training loop (~./python/rl_lbd.py~)
+
+ - ~./solver/~ contains:
+    - ~./solver/cadical~: CaDiCaL with support for periodic refocusing
+    - ~./solver/satenv~: CaDiCaL retooled as a reinforcement learning environment for glue level (LBD) minimization
+
+ - ~./data/~ contains:
+   - ~./data/sha1/~: dataset of 250 problems encoding SHA-1 preimage attacks, generated with [[https://www.github.com/vsklad/cgen/][CGen]]
+   - ~./data/sc/README.org~: instructions for downloading the Main tracks of SATCOMP 2018 and SATRACE 2019.
+
+ - ~./torchscript/~ contains:
+  - PyTorch checkpoints ~./torchscript/weights/~
+  - TorchScript checkpoints ~./torchscript/deploy/~
+
+* Setup
+#+begin_src bash
+cd neuro-cadical
+
+# set up python dependencies
+python3.7 -m venv ./python/virtualenv
+source ./python/virtualenv/bin/activate
+pip install --upgrade pip && pip install -r ./python/requirements.txt
+
+# recursively update submodules
+git submodule update --init --recursive
+
+# set up modified CaDiCaL -- note: libtorch is required, adjust CMakeLists accordingly
+cd ./cadical/build/ && cmake .. && make -j 16
+
+# set up RL environment
+cd ./satenv/ && python setup.py install
+
+# run solver with periodic refocusing
+./cadical/build/cadical ./data/dummy_data/sr_2.cnf -model ./torchscript/deploy/sc/satcomp_weights.pt --refocus --queryinterval=50000 --refocusinittime=0 --refocusceil=250000 --refocusdecaybase=1000 --refocusdecayexp=2
+#+end_src

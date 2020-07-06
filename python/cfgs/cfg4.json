@@ -1,0 +1,9 @@
+{
+  "clause_dim": 64,
+  "lit_dim": 16,
+  "n_hops": 2,
+  "n_layers_C_update": 1,
+  "n_layers_L_update": 1,
+  "n_layers_score": 2,
+  "activation": "leaky_relu"
+}

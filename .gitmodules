@@ -1,0 +1,10 @@
+[submodule "cgen"]
+	path = cgen
+	url = https://www.github.com/vsklad/cgen/
+[submodule "satenv"]
+	path = satenv
+	url = https://www.github.com/jesse-michael-han/cadical/
+	branch = rl-lbd
+[submodule "cadical"]
+	path = cadical
+	url = https://www.github.com/jesse-michael-han/cadical/
