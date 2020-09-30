@@ -1,7 +1,7 @@
 #+TITLE: neuro-CaDiCaL
 
 * About
-This repository contains code and data for /Enhancing SAT solvers with glue variable predictions/, submitted to NeurIPS 2020.
+This repository contains code and data for the preprint [[https://arxiv.org/abs/2007.02559][Enhancing SAT solvers with glue variable predictions]].
 
 * Repository contents
  - ~./python/~ contains:

@@ -13,7 +13,6 @@ def check_make_path(path):
       os.makedirs(path)
     except:
       print("[WARNING] os.makedirs failed")
-
 def files_with_extension(dir_path, ext=None):
   if ext is None:
     dataset_files = [os.path.join(dir_path, x) for x in os.listdir(dir_path)]

@@ -155,7 +155,7 @@ class GNN1(nn.Module):
       L = self.L_update(L_msg) + (0.1 * L)
       L = self.L_layer_norm(L)
     V = torch.cat([L[0:int(L.size()[0]/2)], L[int(L.size()[0]/2):]], dim=1)
-    return self.V_score_drat(V), self.V_score_core(V), self.C_score_core(C)  
+    return self.V_score_drat(V), self.V_score_core(V), self.C_score_core(C)
 
 class GNN1_drat(nn.Module): # deploy the drat head only
   def __init__(self,
